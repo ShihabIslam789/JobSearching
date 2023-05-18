@@ -20,3 +20,14 @@ export class JobSearch {
         this.countryCode = results.countryCode.toLowerCase();
         this.setCurrencySymbol();
       });
+    }
+
+    setCurrencySymbol() {
+      this.currencySymbol = getCurrencySymbol(this.countryCode);
+    }
+  
+    configureFormListener() {
+      this.searchForm.addEventListener('submit', (event) => {
+      event.preventDefault();
+      this.startLoading();
+      this.resultsContainer.innerHTML = '';
