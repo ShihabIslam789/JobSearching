@@ -40,3 +40,16 @@ export class JobSearch {
             .map(job => jobTemplate(job, this.currencySymbol))
             .join('');
         })
+        .then(jobs => this.resultsContainer.innerHTML = jobs)
+      .catch(() => this.stopLoading());
+    });
+  }
+
+  startLoading() {
+    this.loadingElement.classList.add('loading');
+  }
+
+  stopLoading() {
+    this.loadingElement.classList.remove('loading');
+  }
+}
