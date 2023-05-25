@@ -125,3 +125,15 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.jobTemplate = void 0;
+
+var jobTemplate = function jobTemplate(job, currency) {
+  return "\n<div class=\"card\">\n  <div class=\"card-body\">\n  <h4 class=\"card-title\">".concat(job.title, " up to ").concat(currency).concat(job.salary_max, "</h4>\n  <h5>").concat(job.location.display_name, "</h5>\n  <p class=\"card-text\">").concat(job.description, "</p>\n  <a href=\"").concat(job.redirect_url, "\">View Job</a>\n  </div>\n</div>\n");
+};
+
+exports.jobTemplate = jobTemplate;
+},{}],"src/utils.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
