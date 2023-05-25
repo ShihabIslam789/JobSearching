@@ -170,3 +170,12 @@ exports.getCurrencySymbol = getCurrencySymbol;
 },{}],"src/JobSearch.js":[function(require,module,exports) {
 "use strict";
 
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.JobSearch = void 0;
+
+var _templates = require("./templates");
+
+var _utils = require("./utils");
+
