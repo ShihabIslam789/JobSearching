@@ -155,3 +155,18 @@ var extractFormData = function extractFormData(form) {
 };
 
 exports.extractFormData = extractFormData;
+
+var getCurrencySymbol = function getCurrencySymbol(country) {
+  var currencies = {
+    gb: '£',
+    us: '$',
+    au: '$',
+    ca: '$'
+  };
+  return currencies[country];
+};
+
+exports.getCurrencySymbol = getCurrencySymbol;
+},{}],"src/JobSearch.js":[function(require,module,exports) {
+"use strict";
+
