@@ -260,3 +260,20 @@ function () {
           this.loadingElement.classList.remove('loading');
         }
       }]);
+
+      return JobSearch;
+}();
+
+exports.JobSearch = JobSearch;
+},{"./templates":"src/templates.js","./utils":"src/utils.js"}],"src/app.js":[function(require,module,exports) {
+"use strict";
+
+var _JobSearch = require("./JobSearch");
+
+var jobSearch = new _JobSearch.JobSearch('#search-form', '.result-container', '.loading-element');
+jobSearch.setCountryCode();
+jobSearch.configureFormListener();
+},{"./JobSearch":"src/JobSearch.js"}],"node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+var global = arguments[3];
+var OVERLAY_ID = '__parcel__error__overlay__';
+var OldModule = module.bundle.Module;
