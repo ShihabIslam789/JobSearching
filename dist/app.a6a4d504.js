@@ -231,3 +231,15 @@ function () {
         var _extractFormData = (0, _utils.extractFormData)(_this2.searchForm),
             search = _extractFormData.search,
             location = _extractFormData.location;
+
+            fetch("http://localhost:3000/?search=".concat(search, "&location=").concat(location, "&country=").concat(_this2.countryCode)).then(function (response) {
+              return response.json();
+            }).then(function (_ref) {
+              var results = _ref.results;
+    
+              _this2.stopLoading();
+    
+              return results.map(function (job) {
+                return (0, _templates.jobTemplate)(job, _this2.currencySymbol);
+              }).join('');
+            }).then(function (jobs) {
