@@ -211,3 +211,23 @@ function () {
         _this.setCurrencySymbol();
       });
     }
+  }, {
+    key: "setCurrencySymbol",
+    value: function setCurrencySymbol() {
+      this.currencySymbol = (0, _utils.getCurrencySymbol)(this.countryCode);
+    }
+  }, {
+    key: "configureFormListener",
+    value: function configureFormListener() {
+      var _this2 = this;
+
+      this.searchForm.addEventListener('submit', function (event) {
+        event.preventDefault();
+
+        _this2.startLoading();
+
+        _this2.resultsContainer.innerHTML = '';
+
+        var _extractFormData = (0, _utils.extractFormData)(_this2.searchForm),
+            search = _extractFormData.search,
+            location = _extractFormData.location;
