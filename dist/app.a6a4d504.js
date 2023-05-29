@@ -195,3 +195,19 @@ function () {
     this.resultsContainer = document.querySelector(resultsContainerSelector);
     this.loadingElement = document.querySelector(loadingElementSelector);
   }
+
+  _createClass(JobSearch, [{
+    key: "setCountryCode",
+    value: function setCountryCode() {
+      var _this = this;
+
+      this.countryCode = 'gb';
+      this.setCurrencySymbol();
+      fetch('http://ip-api.com/json').then(function (results) {
+        return results.json();
+      }).then(function (results) {
+        _this.countryCode = results.countryCode.toLowerCase();
+
+        _this.setCurrencySymbol();
+      });
+    }
