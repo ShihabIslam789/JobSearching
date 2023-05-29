@@ -243,3 +243,20 @@ function () {
                 return (0, _templates.jobTemplate)(job, _this2.currencySymbol);
               }).join('');
             }).then(function (jobs) {
+              return _this2.resultsContainer.innerHTML = jobs;
+            }).catch(function () {
+              return _this2.stopLoading();
+            });
+          });
+        }
+      }, {
+        key: "startLoading",
+        value: function startLoading() {
+          this.loadingElement.classList.add('loading');
+        }
+      }, {
+        key: "stopLoading",
+        value: function stopLoading() {
+          this.loadingElement.classList.remove('loading');
+        }
+      }]);
