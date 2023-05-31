@@ -303,3 +303,15 @@ if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
   var ws = new WebSocket(protocol + '://' + hostname + ':' + "50123" + '/');
 
+  ws.onmessage = function (event) {
+    checkedAssets = {};
+    assetsToAccept = [];
+    var data = JSON.parse(event.data);
+
+    if (data.type === 'update') {
+      var handled = false;
+      data.assets.forEach(function (asset) {
+        if (!asset.isNew) {
+          var didAccept = hmrAcceptCheck(global.parcelRequire, asset.id);
+
+
