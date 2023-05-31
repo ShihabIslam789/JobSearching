@@ -379,4 +379,15 @@ function createErrorOverlay(data) {
   return overlay;
 }
 
+function getParents(bundle, id) {
+  var modules = bundle.modules;
+
+  if (!modules) {
+    return [];
+  }
+
+  var parents = [];
+  var k, d, dep;
+
+
 
