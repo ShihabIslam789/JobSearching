@@ -327,5 +327,17 @@ if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
       if (handled) {
         console.clear();
         data.assets.forEach(function (asset) {
+           hmrApply(global.parcelRequire, asset);
+        });
+        assetsToAccept.forEach(function (v) {
+          hmrAcceptRun(v[0], v[1]);
+        });
+      } else {
+        window.location.reload();
+      }
+    }
+
+    if (data.type === 'reload') {
+      ws.close();
 
 
