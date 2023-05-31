@@ -340,4 +340,14 @@ if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
     if (data.type === 'reload') {
       ws.close();
 
+       ws.onclose = function () {
+        location.reload();
+      };
+    }
+
+    if (data.type === 'error-resolved') {
+      console.log('[parcel] ✨ Error resolved');
+      removeErrorOverlay();
+    }
+
 
