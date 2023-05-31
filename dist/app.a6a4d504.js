@@ -359,4 +359,12 @@ if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   };
 }
 
+function removeErrorOverlay() {
+  var overlay = document.getElementById(OVERLAY_ID);
+
+  if (overlay) {
+    overlay.remove();
+  }
+}
+
 
