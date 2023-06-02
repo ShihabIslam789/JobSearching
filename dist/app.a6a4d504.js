@@ -464,3 +464,17 @@ function hmrAcceptRun(bundle, id) {
     });
   }
 
+  delete bundle.cache[id];
+  bundle(id);
+  cached = bundle.cache[id];
+
+  if (cached && cached.hot && cached.hot._acceptCallbacks.length) {
+    cached.hot._acceptCallbacks.forEach(function (cb) {
+      cb();
+    });
+
+    return true;
+  }
+}
+},{}]},{},["node_modules/parcel/src/builtins/hmr-runtime.js","src/app.js"], null)
+//# sourceMappingURL=/app.a6a4d504.js.map
